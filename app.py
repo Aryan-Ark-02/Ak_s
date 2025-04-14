@@ -64,41 +64,34 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', form=form)
 
-def seed_database():
-    courses = [
-        Course(
-            title="Web Development Fundamentals",
-            category="Web Development",
+def seed_data():
+    courses = []
+    if not Course.query.first():
+        course1 = Course(
+            id=101,
+            title="Complete Python Bootcamp",
+            rating=4.7,
+            course_description="Learn Python from scratch to advanced level with hands-on projects",
+            description1="Perfect for beginners with no prior experience",
+            description2="Includes real-world applications and portfolio projects",
+            category="Programming",
             instructor="John Smith",
-            description="Learn the core concepts of HTML, CSS, and JavaScript to build modern websites.",
-            duration="8 weeks",
-            lessons=24,
-            rating=4.8,
+            duration="30 hours",
+            number_of_lessons=45,
             price=49.99,
             original_price=99.99,
-            image_url="placeholder_url",
+            image_url="https://example.com/images/python-course.jpg",
             featured=True,
-        ),
-        Course(
-            title="Data Science Essentials",
-            category="Data Science",
-            instructor="Emily Chen",
-            description="Master the fundamentals of data analysis, visualization, and machine learning.",
-            duration="10 weeks",
-            lessons=32,
-            rating=4.7,
-            price=59.99,
-            original_price=129.99,
-            image_url="placeholder_url",
-            featured=False,
-        ),
-        # Add other courses similarly...
-    ]
+            key_topics_covered='["Data Types", "OOP", "Web Development", "Data Analysis"]',
+            requirements='["Basic Computer Skills", "No Prior Programming Needed"]',
+            target_audience='["Beginners", "Career Switchers", "Data Professionals"]',
+            learning_outcomes='["Build Python applications", "Automate tasks", "Analyze data"]'
+        )
+        courses.append(course1)
 
-    with app.app_context():
-        if not inspect(db.engine).has_table(Course.__tablename__):
-            db.create_all()
-        else:
+        with app.app_context():
+            if not inspect(db.engine).has_table(Course.__tablename__):
+                db.create_all()
             if Course.query.count() == 0:  # Check if the table is empty
                 db.session.add_all(courses)
                 db.session.commit()
@@ -106,5 +99,5 @@ def seed_database():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        seed_database()
+        seed_data()
     app.run(debug=True)

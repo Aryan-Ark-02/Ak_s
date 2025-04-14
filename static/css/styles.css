@@ -782,10 +782,6 @@ p {
     z-index: 1;
 }
 
-.course-content {
-    padding: 1.5rem;
-}
-
 .course-category {
     display: inline-block;
     background-color: var(--light-bg);
@@ -1114,7 +1110,7 @@ p {
 }
 
 .course-content {
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 
 .course-tabs-container {
@@ -1200,7 +1196,7 @@ p {
 }
 
 .course-description, .course-requirements, .target-audience {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .course-description p, .course-requirements li, .target-audience li {
