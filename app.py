@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy, inspect
+from sqlalchemy import inspect
 from werkzeug.security import generate_password_hash, check_password_hash
-from db import User, Course
+from db import db, User, Course
 from forms import SignupForm, LoginForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'  # Replace with a strong secret key
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
+db.init_app(app)
 
 @app.route('/')
 def index():
@@ -96,8 +96,8 @@ def seed_database():
                 db.session.add_all(courses)
                 db.session.commit()
 
-with app.app_context():
-    seed_database()
-
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+        seed_database()
     app.run(debug=True)
