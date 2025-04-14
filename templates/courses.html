@@ -112,7 +112,38 @@
         <section class="courses">
             <div class="container">
                 <div class="courses-grid" id="courses-container">
-                    <!-- Course cards will be dynamically inserted here -->
+                    {% for course in courses %} 
+                        <div class="course-card">
+                            {% if course.featured %}
+                                <span class="featured-label">Featured</span>
+                            {% endif %}
+                            <div class="course-image">
+                                <img src="{{ course.image_url }}" alt="{{ course.title }}">
+                            </div>
+                            <div class="course-content">
+                                <span class="course-category">{{ course.category }}</span>
+                                <h3>{{ course.title }}</h3>
+                                <p class="course-instructor">By {{ course.instructor }}</p>
+                                <p class="course-description">{{ course.description }}</p>
+                                <div class="course-info">
+                                    <span><i class="far fa-clock"></i> {{ course.duration }}</span>
+                                    <span><i class="fas fa-list-ul"></i> {{ course.lessons }} lessons</span>
+                                </div>
+                                <div class="course-meta">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i> {{ course.rating }}
+                                    </div>
+                                </div>
+                                <div class="course-price">
+                                    {% if course.original_price %}
+                                        <span class="original-price">${{ course.original_price }}</span>
+                                    {% endif %}
+                                    <span class="current-price">${{ course.price }}</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Enroll Now</a>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <!-- Pagination -->

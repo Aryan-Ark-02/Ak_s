@@ -13,3 +13,20 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User(username='{self.username}', email='{self.email}')>"
+
+class Course(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(), nullable=False)
+    category = db.Column(db.String())
+    instructor = db.Column(db.String(), nullable=False)
+    description = db.Column(db.Text(), nullable=False)
+    duration = db.Column(db.String())
+    lessons = db.Column(db.Integer())
+    rating = db.Column(db.Float())
+    price = db.Column(db.Float())
+    original_price = db.Column(db.Float())
+    image_url = db.Column(db.String())
+    featured = db.Column(db.Boolean(), default=False)
+    
+def __repr__(self):
+    return f"<Course(title='{self.title}', instructor='{self.instructor}')>"

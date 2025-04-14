@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, inspect
 from werkzeug.security import generate_password_hash, check_password_hash
-from db import User
+from db import User, Course
 from forms import SignupForm, LoginForm
 
 app = Flask(__name__)
@@ -13,13 +13,14 @@ db = SQLAlchemy(app)
 def index():
     return render_template('index.html')
 
-@app.route('/courses')
-def courses():
-    return render_template('courses.html')
 
 @app.route('/course-detail')
 def course_detail():
     return render_template('course-detail.html')
+@app.route('/courses')
+def courses():
+    courses = Course.query.all()  # Retrieve all courses
+    return render_template('courses.html', courses=courses)
 
 @app.route('/enrolled-course')
 def enrolled_course():
@@ -56,8 +57,47 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', form=form)
 
+def seed_database():
+    courses = [
+        Course(
+            title="Web Development Fundamentals",
+            category="Web Development",
+            instructor="John Smith",
+            description="Learn the core concepts of HTML, CSS, and JavaScript to build modern websites.",
+            duration="8 weeks",
+            lessons=24,
+            rating=4.8,
+            price=49.99,
+            original_price=99.99,
+            image_url="placeholder_url",
+            featured=True,
+        ),
+        Course(
+            title="Data Science Essentials",
+            category="Data Science",
+            instructor="Emily Chen",
+            description="Master the fundamentals of data analysis, visualization, and machine learning.",
+            duration="10 weeks",
+            lessons=32,
+            rating=4.7,
+            price=59.99,
+            original_price=129.99,
+            image_url="placeholder_url",
+            featured=False,
+        ),
+        # Add other courses similarly...
+    ]
+
+    with app.app_context():
+        if not inspect(db.engine).has_table(Course.__tablename__):
+            db.create_all()
+        else:
+            if Course.query.count() == 0:  # Check if the table is empty
+                db.session.add_all(courses)
+                db.session.commit()
+
 with app.app_context():
-    db.create_all()
+    seed_database()
 
 if __name__ == '__main__':
     app.run(debug=True)
