@@ -2070,6 +2070,12 @@ p {
     flex-direction: column;
 }
 
+fieldset.form-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 .label-with-link {
     display: flex;
     justify-content: space-between;
