@@ -17,51 +17,58 @@
             </div>
             
             <div class="auth-body">
-                <form id="signup-form" class="auth-form">
+                <form method="POST" class="auth-form">
+                    {{ form.hidden_tag() }}
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="John" required>
-                            <span class="error-message" id="firstName-error"></span>
+                            {{ form.first_name.label }}
+                            {{ form.first_name(placeholder="John") }}
+                            {% if form.first_name.errors %}
+                                <span class="error-message">{{ form.first_name.errors[0] }}</span>
+                            {% endif %}
                         </div>
-                        
                         <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
-                            <span class="error-message" id="lastName-error"></span>
+                            {{ form.last_name.label }}
+                            {{ form.last_name(placeholder="Doe") }}
+                            {% if form.last_name.errors %}
+                                <span class="error-message">{{ form.last_name.errors[0] }}</span>
+                            {% endif %}
                         </div>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="number" id="age" name="age" placeholder="25" required>
-                        <span class="error-message" id="age-error"></span>
+                        {{ form.age.label }}
+                        {{ form.age(placeholder="25") }}
+                        {% if form.age.errors %}
+                            <span class="error-message">{{ form.age.errors[0] }}</span>
+                        {% endif %}
                     </div>
-                    
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="johndoe" required>
-                        <span class="error-message" id="username-error"></span>
+                        {{ form.username.label }}
+                        {{ form.username(placeholder="johndoe") }}
+                        {% if form.username.errors %}
+                            <span class="error-message">{{ form.username.errors[0] }}</span>
+                        {% endif %}
                     </div>
-                    
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="••••••••" required>
-                        <span class="error-message" id="password-error"></span>
+                        {{ form.password.label }}
+                        {{ form.password(placeholder="••••••••") }}
+                        {% if form.password.errors %}
+                            <span class="error-message">{{ form.password.errors[0] }}</span>
+                        {% endif %}
                     </div>
-                    
                     <div class="form-group">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
-                        <span class="error-message" id="confirmPassword-error"></span>
+                        {{ form.confirm_password.label }}
+                        {{ form.confirm_password(placeholder="••••••••") }}
+                        {% if form.confirm_password.errors %}
+                            <span class="error-message">{{ form.confirm_password.errors[0] }}</span>
+                        {% endif %}
                     </div>
-                    
                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                 </form>
             </div>
             
             <div class="auth-footer">
-                <p>Already have an account? <a href="login.html">Login here</a></p>
+                <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
             </div>
         </div>
     </div>
