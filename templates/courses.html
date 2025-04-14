@@ -13,12 +13,12 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">EduSkill</a>
+                <a href="{{ url_for('index') }}" class="logo">EduSkill</a>
                 
                 <nav class="nav-desktop">
                     <ul class="nav-links">
-                        <li><a href="/" class="active">Home</a></li>
-                        <li><a href="courses.html" class="active">Courses</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('courses') }}" class="active">Courses</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
@@ -26,10 +26,10 @@
                 </nav>
                 
                 <div class="auth-buttons">
-                    <a href="login" class="btn btn-outline">
+                    <a href="{{ url_for('login') }}" class="btn btn-outline">
                         <i class="fas fa-sign-in-alt"></i> Log In
                     </a>
-                    <a href="signup" class="btn btn-primary">
+                    <a href="{{ url_for('signup') }}" class="btn btn-primary">
                         <i class="fas fa-user"></i> Sign Up
                     </a>
                 </div>
@@ -44,17 +44,17 @@
         <div class="mobile-menu">
             <div class="container">
                 <ul class="mobile-nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('courses') }}">Courses</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <div class="mobile-auth-buttons">
-                    <a href="login.html" class="btn btn-outline btn-block">
+                    <a href="{{ url_for('login') }}" class="btn btn-outline btn-block">
                         <i class="fas fa-sign-in-alt"></i> Log In
                     </a>
-                    <a href="signup.html" class="btn btn-primary btn-block">
+                    <a href="{{ url_for('signup') }}" class="btn btn-primary btn-block">
                         <i class="fas fa-user"></i> Sign Up
                     </a>
                 </div>
@@ -117,9 +117,11 @@
                             {% if course.featured %}
                                 <span class="featured-label">Featured</span>
                             {% endif %}
-                            <div class="course-image">
-                                <img src="{{ course.image_url }}" alt="{{ course.title }}">
-                            </div>
+                            <a href="{{ url_for('course_detail', course_id=course.id) }}" class="course-link">
+                                <div class="course-image">
+                                    <img src="{{ course.image_url }}" alt="{{ course.title }}">
+                                </div>
+                            </a>
                             <div class="course-content">
                                 <span class="course-category">{{ course.category }}</span>
                                 <h3>{{ course.title }}</h3>
@@ -182,7 +184,8 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('courses') }}">Courses</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>

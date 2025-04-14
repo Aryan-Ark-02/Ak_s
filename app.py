@@ -14,9 +14,11 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/course-detail')
-def course_detail():
-    return render_template('course-detail.html')
+@app.route('/course-detail/<int:course_id>')
+def course_detail(course_id):
+    course = Course.query.get_or_404(course_id)
+    return render_template('course-detail.html', course=course)
+
 @app.route('/courses')
 def courses():
     courses = Course.query.all()  # Retrieve all courses
@@ -25,6 +27,11 @@ def courses():
 @app.route('/enrolled-course')
 def enrolled_course():
     return render_template('enrolled-course.html')
+
+@app.route('/resource')
+def resource():
+    # TODO: Implement resource handling
+    return "Resource page"
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

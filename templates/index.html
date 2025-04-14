@@ -13,12 +13,12 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">EduSkill</a>
+                <a href="{{ url_for('index') }}" class="logo">EduSkill</a>
                 
                 <nav class="nav-desktop">
                     <ul class="nav-links">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="{{ url_for('index') }}" class="active">Home</a></li>
+                        <li><a href="{{ url_for('courses') }}">Courses</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
@@ -26,10 +26,10 @@
                 </nav>
                 
                 <div class="auth-buttons">
-                    <a href="login.html" class="btn btn-outline">
+                    <a href="{{ url_for('login') }}" class="btn btn-outline">
                         <i class="fas fa-sign-in-alt"></i> Log In
                     </a>
-                    <a href="signup.html" class="btn btn-primary">
+                    <a href="{{ url_for('signup') }}" class="btn btn-primary">
                         <i class="fas fa-user"></i> Sign Up
                     </a>
                 </div>
@@ -44,17 +44,17 @@
         <div class="mobile-menu">
             <div class="container">
                 <ul class="mobile-nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('courses') }}">Courses</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <div class="mobile-auth-buttons">
-                    <a href="login.html" class="btn btn-outline btn-block">
+                    <a href="{{ url_for('login') }}" class="btn btn-outline btn-block">
                         <i class="fas fa-sign-in-alt"></i> Log In
                     </a>
-                    <a href="signup.html" class="btn btn-primary btn-block">
+                    <a href="{{ url_for('signup') }}" class="btn btn-primary btn-block">
                         <i class="fas fa-user"></i> Sign Up
                     </a>
                 </div>
@@ -71,8 +71,8 @@
                         <h1>Master In-Demand Skills for Your Career</h1>
                         <p>Learn from industry experts with hands-on projects and get job-ready with our industry-relevant curriculum.</p>
                         <div class="hero-buttons">
-                            <a href="courses.html" class="btn btn-light">Explore Courses</a>
-                            <a href="signup.html" class="btn btn-outline-light">Get Started</a>
+                            <a href="{{ url_for('courses') }}" class="btn btn-light">Explore Courses</a>
+                            <a href="{{ url_for('signup') }}" class="btn btn-outline-light">Get Started</a>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -190,7 +190,7 @@
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                            <a href="signup.html" class="btn btn-primary btn-block">Get Started</a>
+                            <a href="{{ url_for('signup') }}" class="btn btn-primary btn-block">Get Started</a>
                         </div>
                     </div>
                     
@@ -213,7 +213,7 @@
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                            <a href="signup.html" class="btn btn-primary btn-block">Get Started</a>
+                            <a href="{{ url_for('signup') }}" class="btn btn-primary btn-block">Get Started</a>
                         </div>
                     </div>
                     
@@ -248,7 +248,7 @@
             <div class="container">
                 <h2>Ready to Start Your Learning Journey?</h2>
                 <p>Join thousands of students who have transformed their careers with our courses.</p>
-                <a href="courses.html" class="btn btn-light">Explore Courses</a>
+                <a href="{{ url_for('courses') }}" class="btn btn-light">Explore Courses</a>
             </div>
         </section>
     </main>
@@ -271,7 +271,7 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="{{ url_for('courses') }}">Courses</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
