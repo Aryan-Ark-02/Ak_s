@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Fundamentals - Learning - EduSkill</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="enrolled-course-page">
+    <!-- Header -->
+    <header class="learning-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="left-section">
+                    <button id="mobile-sidebar-toggle" class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                        <span>Curriculum</span>
+                    </button>
+                    <a href="course-detail.html" class="back-link">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>Back to Course</span>
+                    </a>
+                </div>
+                
+                <div class="right-section">
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-book-open"></i>
+                        <span>Notes</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="learning-container">
+        <!-- Sidebar -->
+        <aside class="learning-sidebar" id="learning-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-close" id="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <h3>Course Curriculum</h3>
+            </div>
+            
+            <div class="course-info">
+                <h4>Web Development Fundamentals</h4>
+                <div class="progress-info">
+                    <div class="progress-text">
+                        <span id="completed-count">0</span> of <span id="total-lessons">30</span> completed
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="curriculum-list">
+                <div class="module">
+                    <div class="module-header">
+                        <div class="module-status">
+                            <div class="status-icon">1</div>
+                        </div>
+                        <span class="module-title">Introduction to Web Development</span>
+                        <i class="fas fa-chevron-down module-toggle"></i>
+                    </div>
+                    <div class="module-content">
+                        <ul class="lessons">
+                            <li class="lesson active" data-module="0" data-lesson="0">
+                                <div class="lesson-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">Course Overview</span>
+                                    <span class="lesson-duration">5 min</span>
+                                </div>
+                            </li>
+                            <li class="lesson" data-module="0" data-lesson="1">
+                                <div class="lesson-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">Setting Up Your Development Environment</span>
+                                    <span class="lesson-duration">15 min</span>
+                                </div>
+                            </li>
+                            <li class="lesson" data-module="0" data-lesson="2">
+                                <div class="lesson-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">Understanding How the Web Works</span>
+                                    <span class="lesson-duration">20 min</span>
+                                </div>
+                            </li>
+                            <li class="lesson" data-module="0" data-lesson="3">
+                                <div class="lesson-status">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">Web Development Tools and Resources</span>
+                                    <span class="lesson-duration">25 min</span>
+                                </div>
+                            </li>
+                            <li class="lesson" data-module="0" data-lesson="4">
+                                <div class="lesson-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">Your First Web Page</span>
+                                    <span class="lesson-duration">30 min</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <div class="module-status">
+                            <div class="status-icon">2</div>
+                        </div>
+                        <span class="module-title">HTML Fundamentals</span>
+                        <i class="fas fa-chevron-down module-toggle"></i>
+                    </div>
+                    <div class="module-content">
+                        <ul class="lessons">
+                            <li class="lesson" data-module="1" data-lesson="0">
+                                <div class="lesson-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">HTML Document Structure</span>
+                                    <span class="lesson-duration">20 min</span>
+                                </div>
+                            </li>
+                            <li class="lesson" data-module="1" data-lesson="1">
+                                <div class="lesson-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <span class="lesson-title">Working with Text Elements</span>
+                                    <span class="lesson-duration">25 min</span>
+                                </div>
+                            </li>
+                            <!-- More lessons would be here -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <div class="module-status">
+                            <div class="status-icon">3</div>
+                        </div>
+                        <span class="module-title">CSS Styling</span>
+                        <i class="fas fa-chevron-down module-toggle"></i>
+                    </div>
+                    <div class="module-content">
+                        <!-- Lessons would be here -->
+                    </div>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <div class="module-status">
+                            <div class="status-icon">4</div>
+                        </div>
+                        <span class="module-title">JavaScript Basics</span>
+                        <i class="fas fa-chevron-down module-toggle"></i>
+                    </div>
+                    <div class="module-content">
+                        <!-- Lessons would be here -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="learning-content">
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <h1 id="current-lesson-title">Course Overview</h1>
+                    <p id="current-module-title">Module 1: Introduction to Web Development</p>
+                </div>
+                
+                <!-- Video Player -->
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Video Player</p>
+                        <p class="video-note">In a real application, a video player would be embedded here</p>
+                    </div>
+                </div>
+                
+                <!-- Lesson Content -->
+                <div class="lesson-content">
+                    <div class="lesson-section">
+                        <h2>Lesson Overview</h2>
+                        <p>In this lesson, you will learn about course overview. This is an important concept that will help you build a strong foundation in Web Development.</p>
+                        
+                        <h3>Learning Objectives</h3>
+                        <ul>
+                            <li>Understand the core concepts of course overview</li>
+                            <li>Apply these concepts in practical scenarios</li>
+                            <li>Build a working example to demonstrate your knowledge</li>
+                        </ul>
+                        
+                        <h3>Prerequisites</h3>
+                        <p>Before starting this lesson, make sure you have completed the previous lessons in this module.</p>
+                    </div>
+                    
+                    <div class="lesson-section">
+                        <h2>Additional Resources</h2>
+                        <div class="resources-list">
+                            <div class="resource-item">
+                                <i class="fas fa-file-alt"></i>
+                                <div class="resource-info">
+                                    <h3>Supplementary Reading</h3>
+                                    <p>Additional articles and tutorials to deepen your understanding.</p>
+                                    <a href="#" class="resource-link">View Resource</a>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <i class="fas fa-globe"></i>
+                                <div class="resource-info">
+                                    <h3>External References</h3>
+                                    <p>Links to official documentation and community resources.</p>
+                                    <a href="#" class="resource-link">View Resource</a>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <i class="fas fa-code"></i>
+                                <div class="resource-info">
+                                    <h3>Code Samples</h3>
+                                    <p>Example code snippets to help you implement the concepts.</p>
+                                    <a href="#" class="resource-link">View Resource</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Footer -->
+            <div class="lesson-navigation">
+                <button class="btn btn-outline" id="prev-lesson" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                    Previous Lesson
+                </button>
+                
+                <button class="btn btn-primary" id="next-lesson">
+                    Mark as Completed
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/enrolled-course.js"></script>
+</body>
+</html>
